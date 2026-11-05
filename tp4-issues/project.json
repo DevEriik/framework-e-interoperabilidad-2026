@@ -1,0 +1,60 @@
+{
+  "project": {
+    "owner": "DevEriik",
+    "number": 5,
+    "id": "PVT_kwHOB6T7IM4BqYOa"
+  },
+  "fields": {
+    "Responsable": {
+      "id": "PVTSSF_lAHOB6T7IM4BqYOazhov8A0",
+      "options": {
+        "Erick": "26ab9419",
+        "Abril": "fc841f2b",
+        "Daniela": "41e3707d",
+        "Todos": "6d1c6c2b"
+      }
+    },
+    "Actividad": {
+      "id": "PVTSSF_lAHOB6T7IM4BqYOazhov8Gc",
+      "options": {
+        "Gestión": "6cb2eeee",
+        "Act 1 Calidad": "ed6dd411",
+        "Act 2 Usabilidad": "5fb3c8a3",
+        "Act 3 Accesibilidad": "4d78cf88",
+        "Act 4 Informe": "7da27963",
+        "Act 4 Presentación": "8cac5fe8"
+      }
+    },
+    "Fase": {
+      "id": "PVTSSF_lAHOB6T7IM4BqYOazhov8NI",
+      "options": {
+        "Fase 1": "0da8c7dc",
+        "Fase 2": "bbc06877",
+        "Fase 3": "90422ec3",
+        "Fase 4": "4a4e0f56"
+      }
+    },
+    "Prioridad": {
+      "id": "PVTSSF_lAHOB6T7IM4BqYOazhov8OI",
+      "options": {
+        "P1 Alta": "5a385051",
+        "P2 Media": "6dd0c42d",
+        "P3 Baja": "9ade2fb2"
+      }
+    },
+    "Fecha objetivo": {
+      "id": "PVTF_lAHOB6T7IM4BqYOazhovnzc",
+      "type": "date"
+    },
+    "Status": {
+      "id": "PVTSSF_lAHOB6T7IM4BqYOazhovnoM",
+      "options": {
+        "Backlog": "f75ad846",
+        "Ready": "61e4505c",
+        "In progress": "47fc9ee4",
+        "In review": "df73e18b",
+        "Done": "98236657"
+      }
+    }
+  }
+}
