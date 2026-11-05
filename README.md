@@ -6,125 +6,99 @@ Repositorio oficial correspondiente al desarrollo, documentación y código del 
 
 ## 👥 Equipo: Grupo 1 - NoCode
 
-| Integrante           | Legajo   | Rol / Rama      |
-| :------------------- | :------- | :-------------- |
-| **Abril Gavilan**    | FAI-5163 | `feature/abril` |
-| **Daniela Oñatibia** | FAI-4775 | `feature/dani`  |
-| **Erick Gonzalez**   | FAI-3433 | `feature/erick` |
+| Integrante           | Legajo   | Rol / Módulo Principal | Rama |
+| :------------------- | :------- | :-------------- | :--- |
+| **Abril Gavilan**    | FAI-5163 | Módulo 3: Evaluaciones y Reseñas (Closed-Loop) | `feature/abril` |
+| **Daniela Oñatibia** | FAI-4775 | Módulo 2: Gestión de Usuarios y Perfiles | `feature/dani`  |
+| **Erick Gonzalez**   | FAI-3433 | Módulo 1: Catálogo de Servicios | `feature/erick` |
 
 ---
 
-## 🎯 Objetivos del Trabajo Práctico
+## 🎯 Resumen del Proyecto: "ExpertoYa"
+Para este trabajo práctico, el equipo desarrolló la base técnica completa de **ExpertoYa**, una plataforma transaccional diseñada para conectar clientes con profesionales de oficios matriculados. El sistema se compone de una arquitectura Cliente-Servidor unificada que integra el diseño frontend de la plataforma con una API backend robusta.
 
-1. **Investigación y Selección Tecnológica:** Analizar y fundamentar la elección de un Framework Backend, un Headless CMS y un ecosistema Frontend/UI acorde al proyecto final (**"ExpertoYa"**).
-2. **Implementación de Template Base:** Configurar y desplegar un template base inicial (responsivo, accesible y sin alteraciones visuales) para documentar el estado "antes" previo a la personalización de identidad corporativa.
-3. **Gestión Ágil y Repositorio:** Coordinar el flujo de trabajo mediante un tablero Kanban y buenas prácticas colaborativas en Git (ramas por funcionalidad y revisiones de código).
-
----
-
-## 🛠️ Stack Tecnológico Seleccionado
-
-| Capa / Módulo          | Tecnología Elegida            | Justificación Técnica                                                                                       |
-| :--------------------- | :---------------------------- | :---------------------------------------------------------------------------------------------------------- |
-| **Framework Backend**  | **Express.js**                | Arquitectura minimalista, integración nativa con Node.js y óptimo manejo asíncrono para WebSockets y APIs.  |
-| **Headless CMS**       | **Strapi**                    | Homogeneidad en JavaScript/TypeScript, panel intuitivo y exposición de API REST/GraphQL desacoplada.        |
-| **Framework Frontend** | **React + TypeScript (Vite)** | Renderizado reactivo basado en componentes, tipado estático para flujos transaccionales y HMR ultrarrápido. |
-| **Framework CSS**      | **Tailwind CSS**              | Paradigma _utility-first_, compilador JIT que elimina CSS muerto y control granular del diseño.             |
-| **Sistema de UI**      | **Shadcn/ui + Radix UI**      | Primitivas _headless_ con accesibilidad total (WAI-ARIA) y soberanía absoluta del código fuente.            |
-
-> 📄 **Documentación técnica formal disponible en `/docs`:**
->
-> - [Justificación Backend & CMS (Express.js / Strapi)](./docs/justificacion_tecnica.md)
-> - [Justificación Frontend & UI (React / Tailwind / Shadcn)](./docs/justificacion_tecnica_frontend-iu.MD)
+### Módulos Implementados
+1. **Catálogo de Servicios:** Listado y creación de ofertas de oficios.
+2. **Gestión de Usuarios:** Registro de clientes y profesionales con encriptación de contraseñas (`bcryptjs`) y autenticación.
+3. **Reseñas y Calificaciones:** Sistema *Closed-Loop* conectado a una base de datos real en la nube para calificar profesionales.
 
 ---
 
-## 📂 Estructura del Proyecto
+## 🛠️ Stack Tecnológico
+
+| Capa | Tecnología Elegida | Justificación |
+| :--- | :--- | :--- |
+| **Backend & API** | **Express.js (Node.js)** | Arquitectura minimalista y óptimo manejo asíncrono para rutas RESTful. |
+| **Base de Datos** | **PostgreSQL (Supabase)** | Base de datos relacional en la nube para garantizar persistencia y escalabilidad. |
+| **Frontend UI** | **React + TypeScript (Vite)** | Renderizado reactivo basado en componentes y tipado estático seguro. |
+| **Estilos** | **Tailwind CSS + Shadcn/ui** | Paradigma *utility-first* y componentes accesibles de alto rendimiento visual. |
+
+> 📄 **Documentación técnica:** Puedes revisar todos los informes de calidad, auditorías de usabilidad y manuales técnicos en la carpeta [`/docs`](./docs/).
+
+---
+
+## 📂 Estructura del Repositorio
 
 ```text
-├── docs/
-│   ├── capturas_base/                        # Evidencia gráfica del entorno y template original
-│   │   ├── framework_react_vacio.jpeg
-│   │   ├── template_base_shadcn_001.jpeg
-│   │   └── template_base_shadcn_002.jpeg
-│   ├── justificacion_tecnica.md              # Informe técnico Backend & CMS
-│   └── justificacion_tecnica_frontend-iu.MD  # Informe técnico Frontend & UI
-├── src/
-│   ├── components/
-│   │   └── ui/                               # Componentes atómicos desacoplados de Shadcn
-│   │       ├── button.tsx
-│   │       ├── card.tsx
-│   │       ├── input.tsx
-│   │       └── label.tsx
-│   ├── lib/
-│   │   └── utils.ts                          # Utilidad cn() (clsx + tailwind-merge)
-│   ├── App.tsx                               # Layout del wireframe base (Navbar, Cards, Form)
-│   ├── index.css                             # Directivas Tailwind y tokens del sistema de diseño
-│   └── main.tsx                              # Punto de entrada de la aplicación React
-├── components.json                           # Configuración del CLI de Shadcn/ui
-├── tailwind.config.js                        # Tokens de colores, bordes y temas de Tailwind
-├── tsconfig.json                             # Configuración y path aliases (@/*) de TypeScript
-└── vite.config.ts                            # Configuración de compilación y bundling de Vite
+├── docs/                      # Informes técnicos, auditorías de UI/UX y capturas del template
+├── server/                    # ⚙️ BACKEND UNIFICADO (API Express)
+│   ├── src/
+│   │   ├── config/            # Conexión a la BD (Supabase)
+│   │   ├── controllers/       # Lógica de negocio
+│   │   ├── routes/            # Endpoints REST
+│   │   └── index.js           # Punto de entrada unificado de la API
+│   ├── .env                   # (No incluido en Git) Variables de entorno
+│   └── package.json           
+├── src/                       # 🎨 FRONTEND (React)
+│   ├── components/            # Componentes de UI y de los 3 módulos
+│   ├── App.tsx                # Layout principal de ExpertoYa
+│   └── main.tsx               
+└── package.json               
 ```
 
 ---
 
 ## 🚀 Guía de Instalación y Ejecución Local
 
-Sigue estos pasos para levantar el entorno de desarrollo en tu máquina:
+Para probar el proyecto completo (Frontend + Backend) en tu máquina, sigue estos pasos al pie de la letra, ya que necesitas levantar dos servidores en simultáneo.
 
-### 1. Requisitos Previos
-
-- **Node.js** (v18.0.0 o superior recomendada)
-- **npm** (incluido con Node.js) o gestor de paquetes compatible
-
-### 2. Clonar el Repositorio
-
+### 1. Clonar el Repositorio
 ```bash
 git clone https://github.com/DevEriik/TP-Nro2-FI--CMS-Framework-NO-CODE-.git
 cd TP-Nro2-FI--CMS-Framework-NO-CODE-
 ```
 
-### 3. Instalar Dependencias
-
-Instala los paquetes del proyecto:
-
+### 2. Configurar y Levantar el Servidor Backend (API)
+Abre una terminal nueva y ejecuta:
 ```bash
+# Entrar a la carpeta del servidor
+cd server
+
+# Instalar las librerías del backend
 npm install
-```
 
-### 4. Iniciar el Servidor de Desarrollo
+# ¡IMPORTANTE! Crea un archivo .env en esta carpeta con las claves de Supabase.
+# (Solicitar credenciales a los administradores del repo)
 
-Ejecuta el entorno local con Vite:
-
-```bash
+# Levantar el servidor (Correrá en el puerto 3001)
 npm run dev
 ```
 
-Una vez iniciado, abre tu navegador en:
-👉 **`http://localhost:5173/`**
-
-### 5. Compilación para Producción (Build)
-
-Para verificar tipos y compilar el bundle final:
-
+### 3. Configurar y Levantar el Frontend (React)
+Abre una **segunda terminal** en la raíz del proyecto (`TP-Nro2-FI--CMS-Framework-NO-CODE-`) y ejecuta:
 ```bash
-npm run build
+# Instalar dependencias de React/Vite
+npm install
+
+# Levantar la interfaz web
+npm run dev
 ```
 
----
-
-## 🎨 Actividad 2: Implementación de Template CSS
-
-- **Template base seleccionado:** Shadcn/ui (Preset Neutro / Radix UI) sobre Tailwind CSS.
-- **Dominio asociado:** "ExpertoYa" (Plataforma transaccional para contratación de oficios y servicios profesionales).
-- **Estado actual:** Wireframe / Template base limpio implementado en `App.tsx` con componentes nativos de la paleta neutra (grises/zinc), preservado sin modificaciones estilísticas para la comparativa formal.
-
-> 📸 **Evidencias gráficas:** Las capturas del estado "puro" antes de aplicar la identidad gráfica se encuentran en la carpeta [`/docs/capturas_base`](./docs/capturas_base).
+👉 Una vez que ambas terminales estén corriendo, abre tu navegador en: **`http://localhost:5173/`**
 
 ---
 
-## 📊 Tablero de Trabajo (Kanban)
+## 📊 Gestión del Proyecto
 
-El progreso y la asignación de _issues_ de este TP se puede seguir en tiempo real en nuestro tablero colaborativo:
-🔗 **[https://github.com/users/DevEriik/projects/4/views/1]**
+Todo el flujo de trabajo colaborativo, revisión de código y resolución de conflictos de integración se gestionó mediante metodología ágil.
+🔗 **[Ver Tablero Kanban Oficial del Grupo 1](https://github.com/users/DevEriik/projects/4/views/1)**
