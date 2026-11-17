@@ -448,7 +448,7 @@ export function CallLauncherButton({ chatStatus, onStartCall }) {
         if (onStartCall) onStartCall();
       }}
       type="button"
-      aria-label="Iniciar videollamada de diagnóstico preliminar"
+      aria-label="Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar"
       className="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all shadow-sm bg-[#FF8C00] text-white hover:bg-[#e67e00] dark:bg-[#FFB74D] dark:text-[#121826] dark:hover:bg-[#ffa726] focus:outline-none focus:ring-2 focus:ring-[#00BFA5] dark:focus:ring-[#33EFA5] focus:ring-offset-2 font-sans cursor-pointer select-none"
     >
       <svg className="w-4 h-4 text-white dark:text-[#121826]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

@@ -64,6 +64,8 @@ La aplicación es una SPA de una sola página con secciones ancladas, no rutas i
 
 ## 5. Foco especial: mapa interactivo
 
+> **Estado:** los problemas 1 a 5 y la solución propuesta se implementaron en TP4-14. Ver [`04_implementacion_aria_mapa.md`](04_implementacion_aria_mapa.md).
+
 ### Evidencia
 
 ![Mapa con WAVE](img/wave/02-mapa-a-overlay.png)
@@ -87,6 +89,8 @@ La aplicación es una SPA de una sola página con secciones ancladas, no rutas i
 - Reemplazar `alert()` por un mensaje `role="alert"` junto al botón, con opción de buscar por zona manualmente.
 
 ## 6. Foco especial: alertas semánticas
+
+> **Estado:** los puntos 1 y 3 se corrigieron en TP4-14 (`role="status"` y `AlertTitle` como `h3`). El contraste (punto 2) sigue pendiente. Ver [`04_implementacion_aria_mapa.md`](04_implementacion_aria_mapa.md).
 
 ### Evidencia
 
