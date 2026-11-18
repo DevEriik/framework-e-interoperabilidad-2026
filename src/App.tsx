@@ -444,7 +444,7 @@ export default function App() {
             </p>
           </div>
           <div className="space-y-3">
-            <Alert variant="success">
+            <Alert variant="success" role="status">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
               <div>
                 <AlertTitle>Operación Exitosa</AlertTitle>
@@ -454,7 +454,7 @@ export default function App() {
                 </AlertDescription>
               </div>
             </Alert>
-            <Alert variant="warning">
+            <Alert variant="warning" role="status">
               <AlertTriangle className="h-4 w-4 shrink-0" />
               <div>
                 <AlertTitle>Alta Demanda en la Zona</AlertTitle>
@@ -465,7 +465,7 @@ export default function App() {
                 </AlertDescription>
               </div>
             </Alert>
-            <Alert variant="destructive">
+            <Alert variant="destructive" role="status">
               <AlertCircle className="h-4 w-4 shrink-0" />
               <div>
                 <AlertTitle>Error en la Validación</AlertTitle>
