@@ -1,4 +1,10 @@
-import { useState, useEffect, type FormEvent } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  type FormEvent,
+} from "react";
 import { ResenaForm } from "@/components/resenas/ResenaForm";
 import { ResenasList } from "@/components/resenas/ResenasList";
 import { useTheme } from "@/components/theme-provider";
@@ -57,6 +63,69 @@ export default function App() {
   const [refreshResenas, setRefreshResenas] = useState(0);
   const [activeSection, setActiveSection] = useState("inicio");
   const [enLlamada, setEnLlamada] = useState(false);
+  const refModal = useRef<HTMLDivElement>(null);
+  const botonQueAbrioModal = useRef<HTMLElement | null>(null);
+
+  const abrirLlamada = useCallback(() => {
+    botonQueAbrioModal.current = document.activeElement as HTMLElement | null;
+    setEnLlamada(true);
+  }, []);
+
+  const cerrarLlamada = useCallback(() => {
+    setEnLlamada(false);
+    requestAnimationFrame(() => {
+      botonQueAbrioModal.current?.focus();
+      botonQueAbrioModal.current = null;
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!enLlamada) return;
+    const modal = refModal.current;
+    if (!modal) return;
+
+    const enfocables = () =>
+      Array.from(
+        modal.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((elemento) => elemento.getClientRects().length > 0);
+
+    (enfocables()[0] ?? modal).focus();
+
+    const manejarTeclas = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        cerrarLlamada();
+        return;
+      }
+      if (event.key !== "Tab") return;
+
+      const elementos = enfocables();
+      if (elementos.length === 0) {
+        event.preventDefault();
+        modal.focus();
+        return;
+      }
+
+      const primero = elementos[0];
+      const ultimo = elementos[elementos.length - 1];
+
+      if (event.shiftKey && document.activeElement === primero) {
+        event.preventDefault();
+        ultimo.focus();
+      } else if (!event.shiftKey && document.activeElement === ultimo) {
+        event.preventDefault();
+        primero.focus();
+      } else if (!modal.contains(document.activeElement)) {
+        event.preventDefault();
+        primero.focus();
+      }
+    };
+
+    document.addEventListener("keydown", manejarTeclas, true);
+    return () => document.removeEventListener("keydown", manejarTeclas, true);
+  }, [enLlamada, cerrarLlamada]);
 
   const handleNavigate = (id: string) => {
     setActiveSection(id);
@@ -129,7 +198,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary/20 selection:text-primary">
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md transition-colors">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 lg:gap-8">
             <a
               href="#inicio"
@@ -137,9 +206,9 @@ export default function App() {
                 e.preventDefault();
                 handleNavigate("inicio");
               }}
-              className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
+              className="flex items-center gap-2.5 rounded-md group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
-              <span className="text-base sm:text-lg font-bold tracking-tight text-primary">
+              <span className="text-sm sm:text-base lg:text-lg font-bold tracking-tight text-primary">
                 ExpertoYa!
               </span>
             </a>
@@ -188,7 +257,7 @@ export default function App() {
             </Button>
             <CallLauncherButton
               chatStatus="active"
-              onStartCall={() => setEnLlamada(true)}
+              onStartCall={abrirLlamada}
             />
             <Button
               variant="outline"
@@ -275,7 +344,7 @@ export default function App() {
                 <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
                   <CallLauncherButton
                     chatStatus="active"
-                    onStartCall={() => setEnLlamada(true)}
+                    onStartCall={abrirLlamada}
                   />
                   <Button
                     variant="outline"
@@ -525,7 +594,7 @@ export default function App() {
       </main>
 
       <nav
-        className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-background/95 backdrop-blur-lg border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.4)] transition-colors"
+        className="fixed bottom-0 inset-x-0 z-[1000] md:hidden bg-background/95 backdrop-blur-lg border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.4)] transition-colors"
         aria-label="Menú principal inferior móvil"
       >
         <div className="grid grid-cols-5 h-16 max-w-lg mx-auto px-1 items-center">
@@ -563,8 +632,11 @@ export default function App() {
       {/* Modal de Videollamada WebRTC (TP3 - ExpertoYa) */}
       {enLlamada && (
         <div
+          ref={refModal}
           role="dialog"
           aria-modal="true"
+          aria-labelledby="titulo-videollamada"
+          tabIndex={-1}
           className="fixed inset-0 z-[9999] bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
         >
           <div className="w-full max-w-4xl max-h-[95vh] flex flex-col relative my-auto">
@@ -573,7 +645,8 @@ export default function App() {
               roomUrl="https://expertoya.daily.co/diagnostico-demo"
               userName="Abril (Cliente ExpertoYa)"
               userRole="cliente"
-              onCloseCall={() => setEnLlamada(false)}
+              titleId="titulo-videollamada"
+              onCloseCall={cerrarLlamada}
             />
           </div>
         </div>
