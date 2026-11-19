@@ -39,6 +39,16 @@ Cerrar los tres hallazgos de severidad **media** pendientes de las pruebas asist
 - `npm run build`: correcto.
 - `npx eslint src/App.tsx`: sin errores. El resto del proyecto conserva 7 errores de lint preexistentes (`any`, `react-refresh/only-export-components`, etc.) que no fueron introducidos por este cambio.
 
-### Pendiente de verificación con lector real
+### Verificación con lector real (19/11/2026)
 
-Las capturas de antes/después con **Orca 46.1** (Linux Mint 22.1, Brave 158.1.100.58) deben tomarse en el entorno del equipo y agregarse al expediente de TP4-15 (`05_pruebas_asistivas.md`, PR #73) una vez mergeados ese PR y el de correcciones críticas (PR #74). Este documento registra únicamente los cambios de código; no incluye evidencia de audio generada artificialmente.
+Se ejecutó una sesión real de **Orca 46.1** sobre la app en vivo (Brave 158.1.100.58, Linux Mint 22.1, X11), con log de depuración (`orca --debug-file`). La transcripción literal de lo anunciado está en `img/asistivas/orca-extracto-medios.txt`.
+
+| Hallazgo | Lo que Orca anunció | Evidencia |
+|---|---|---|
+| Rol | *"Rol actualizado a cliente. Ya no se requiere el oficio o especialidad."* / *"...profesional. El campo oficio o especialidad está disponible."* | `img/asistivas/24-rol-cliente-anunciado.png` |
+| Estrellas | *"4 de 5 estrellas. seleccionado radio button"* | `img/asistivas/25-estrellas-estado-anunciado.png` |
+| Cotización | *"Nombre completo ... requerido. entrada no válida."* + *"No se pudo enviar. Revisá los campos marcados..."* + *"Ingresá tu nombre completo."* | `img/asistivas/26-cotizacion-errores-asociados.png` |
+
+El foco no se movió en el cambio de rol y quedó en `#nombre` (con `aria-invalid="true"`) al fallar la validación de cotización.
+
+Nota: al cargar la página Orca también leyó las alertas estáticas de los estados del sistema; ese hallazgo de TP4-15 queda fuera de estas tres correcciones y se registra en el documento de pruebas asistivas (PR #73).
