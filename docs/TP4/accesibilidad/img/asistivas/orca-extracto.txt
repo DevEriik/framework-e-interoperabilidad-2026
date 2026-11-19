@@ -1,0 +1,181 @@
+Extracto del log de Orca 46.1 - TP4-15
+Sesión: 2026-11-19, Brave 158.1.100.58, Linux Mint 22.1 (X11)
+Log completo (temporal): /tmp/orca-tp4-15.log
+Filtro: solo anuncios de voz (SPEECH OUTPUT) de la sesión de prueba, sin ecos de teclas.
+----------------------------------------------------------------------
+17:07:31.483238 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave - Erick frame.
+17:07:32.422476 | Atención: Alta concurrencia de pedidos en este rubro. El tiempo estimado de respuesta puede demorar hasta 24 horas hábiles.
+17:07:32.550829 | Alta Demanda en la Zona
+17:07:33.508089 | Profesionales en tu zona región se puede pulsar.
+17:07:33.513885 | Mapa interactivo de profesionales. Los mismos resultados están disponibles en la vista de lista.
+17:07:33.593838 | Error en la Validación
+17:07:33.708367 | No se pudo procesar la solicitud. Por favor verifica que los campos obligatorios del formulario estén completos y vuelve a intentar.
+17:07:33.832953 | Operación Exitosa
+17:07:34.020794 | Tu solicitud de cotización ha sido confirmada con éxito. El profesional matriculado se contactará a la brevedad.
+17:07:35.480231 | Vista de resultados panel.
+17:07:35.485394 | Mapa toggle button pulsado.
+17:07:35.492845 | Lista toggle button no pulsado.
+17:07:44.313744 | Servicios y Profesionales heading nivel 2.
+17:07:56.529292 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave - Erick frame.
+17:07:58.516101 | Operación Exitosa
+17:07:58.659975 | Error en la Validación
+17:07:59.507319 | Profesionales en tu zona región se puede pulsar.
+17:07:59.511743 | Mapa interactivo de profesionales. Los mismos resultados están disponibles en la vista de lista.
+17:07:59.532799 | Alta Demanda en la Zona
+17:07:59.645828 | Tu solicitud de cotización ha sido confirmada con éxito. El profesional matriculado se contactará a la brevedad.
+17:07:59.824192 | Atención: Alta concurrencia de pedidos en este rubro. El tiempo estimado de respuesta puede demorar hasta 24 horas hábiles.
+17:08:00.067193 | No se pudo procesar la solicitud. Por favor verifica que los campos obligatorios del formulario estén completos y vuelve a intentar.
+17:08:07.838997 | Martín Benítez, Plomería y Gas, Neuquén Capital y alrededores Clara Rossi, Electricidad Integral, Cipolletti y Plottier Taller Plottier, Electricidad, Plottier Zoom in Zoom out Leaflet © OpenStreetMap.
+17:08:08.199406 | Martín Benítez, Plomería y Gas, Neuquén Capital y alrededores push button.
+17:08:09.220782 | Clara Rossi, Electricidad Integral, Cipolletti y Plottier push button.
+17:08:14.759524 | Taller Plottier, Electricidad, Plottier push button.
+17:08:18.379486 | contenido principal
+17:08:18.384721 | región Profesionales en tu zona
+17:08:18.390156 | Zoom in push button.
+17:08:20.619314 | Zoom out push button.
+17:08:22.569678 |  Leaflet link.
+17:08:22.573217 | A JavaScript library for interactive maps.
+17:08:24.323962 | Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar push button.
+17:08:34.142695 | Ver Perfil push button.
+17:08:37.204207 | Ver Perfil push button.
+17:08:39.595275 | form
+17:08:39.601540 | Nombre completo entry Ej: Juan Pérez.
+17:08:46.263974 | Oficio requerido entry Ej: Electricidad.
+17:08:51.141487 | Descripción del problema entry Detalla brevemente el trabajo que necesitas cotizar.
+17:08:56.653477 | Enviar Solicitud push button.
+17:09:00.843039 | form
+17:09:00.847036 | Calificar con 1 estrellas push button.
+17:09:20.337059 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave frame.
+17:10:15.461862 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave - Erick frame.
+17:10:19.550939 | Error en la Validación
+17:10:19.741058 | Atención: Alta concurrencia de pedidos en este rubro. El tiempo estimado de respuesta puede demorar hasta 24 horas hábiles.
+17:10:20.572507 | Profesionales en tu zona región se puede pulsar.
+17:10:20.576626 | Mapa interactivo de profesionales. Los mismos resultados están disponibles en la vista de lista.
+17:10:21.516524 | Martín Benítez, Plomería y Gas, Neuquén Capital y alrededores push button.
+17:10:23.079345 | Zoom out push button.
+17:10:24.513902 | form
+17:10:24.517188 | Calificar con 3 estrellas push button.
+17:10:26.214530 | ID #1: Martín Benítez push button.
+17:10:26.657507 | Ver la información del sitio push button.
+17:10:27.193494 | Barra de direcciones y de búsqueda autocomplete 127.0.0.1:5173 seleccionado.
+17:10:27.724835 | Brave Shields push button.
+17:10:28.288966 | banner
+17:10:28.299455 | ExpertoYa! link.
+17:10:30.080073 | navegación Navegación principal de escritorio
+17:10:30.084838 | Inicio link.
+17:10:30.555784 | Servicios link.
+17:10:30.917707 | Profesionales link.
+17:10:31.261515 | Cotizar link.
+17:10:31.563912 | Reseñas link.
+17:10:31.895485 | Alternar modo oscuro push button.
+17:10:32.195654 | Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar push button.
+17:10:32.500385 | Iniciar Sesión push button.
+17:10:32.910915 | contenido principal
+17:10:32.914030 | Vista de resultados panel.
+17:10:32.918939 | Mapa toggle button pulsado.
+17:10:34.969147 | Lista toggle button no pulsado.
+17:10:35.998789 | Resultados de profesionales heading nivel 3 se puede pulsar.
+17:10:44.030848 | Lista con 3 elementos.
+17:10:44.034923 | Ver perfil de Martín Benítez link.
+17:10:50.423763 | Servicios y Profesionales.
+17:11:02.799089 | Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar.
+17:11:02.808720 | Ver Perfil push button.
+17:11:03.455850 | banner
+17:11:03.461321 | navegación Navegación principal de escritorio
+17:11:05.415827 | Profesionales link.
+17:11:05.816808 | Cotizar link.
+17:11:06.189186 | Reseñas link.
+17:11:06.733681 | Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar push button.
+17:11:07.026228 | Iniciar Sesión push button.
+17:11:07.448858 | contenido principal
+17:11:07.452729 | Vista de resultados panel.
+17:11:07.456288 | Mapa toggle button no pulsado.
+17:11:07.879702 | Lista toggle button pulsado.
+17:11:08.250786 | Buscar profesionales cercanos push button.
+17:11:08.254153 | Usamos tu ubicación solo para ordenar por distancia.
+17:11:08.750233 | alert http://127.0.0.1:5173 desea hacer lo siguiente: Conocer tu ubicación.
+17:11:08.754165 | Recordar mi decisión Puedes cambiar los   en cualquier momento. 
+17:11:08.859187 | Buscando…
+17:11:08.937744 | Buscando profesionales cerca de tu ubicación…
+17:11:10.015863 | alert http://127.0.0.1:5173 desea hacer lo siguiente: Conocer tu ubicación.
+17:11:10.022882 | Recordar mi decisión Puedes cambiar los   en cualquier momento. 
+17:11:10.027802 | Cerrar push button.
+17:11:10.450507 | Recordar mi decisión combo box.
+17:11:10.455952 | hasta que cierre este sitio.
+17:11:10.780029 | Bloquear push button.
+17:11:11.044059 | Permitir push button.
+17:11:11.686599 | Puedes cambiar los permiso del sitio en cualquier momento. Más información paragraph
+17:11:11.690212 | permiso del sitio link.
+17:11:12.038280 | Más información link.
+17:11:12.244847 | Cerrar push button.
+17:11:12.582081 | Recordar mi decisión combo box.
+17:11:12.588621 | hasta que cierre este sitio.
+17:11:12.892042 | Bloquear push button.
+17:11:13.424781 | notification No se permite la ubicación.
+17:11:13.658923 | No diste permiso de ubicación. Podés habilitarlo en el navegador o buscar por zona.
+17:11:20.876641 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave frame.
+17:12:06.574988 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave - Erick frame.
+17:12:09.008502 | banner
+17:12:09.012617 | navegación Navegación principal de escritorio
+17:12:09.016369 | Reseñas link.
+17:12:09.371569 | Alternar modo oscuro push button.
+17:12:10.147164 | Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar push button.
+17:12:10.756777 | contenido principal
+17:12:10.759915 | Vista de resultados panel.
+17:12:10.763458 | Lista toggle button pulsado.
+17:12:11.254626 | Lista con 3 elementos.
+17:12:11.818819 | banner
+17:12:11.822776 | ExpertoYa! link.
+17:12:12.269772 | navegación Navegación principal de escritorio
+17:12:12.281561 | Inicio link.
+17:12:12.816393 | Cotizar link.
+17:12:14.335299 | Reseñas link.
+17:12:15.115693 | Alternar modo oscuro push button.
+17:12:15.504276 | Diagnóstico en Vivo: iniciar videollamada de diagnóstico preliminar push button.
+17:12:15.789579 | Iniciar Sesión push button.
+17:12:16.319486 | contenido principal
+17:12:16.323712 | Vista de resultados panel.
+17:12:16.327949 | Mapa toggle button no pulsado.
+17:12:17.409671 | Lista toggle button pulsado.
+17:12:17.779449 | Buscar profesionales cercanos push button.
+17:12:17.784214 | Usamos tu ubicación solo para ordenar por distancia.
+17:12:18.369149 | Lista con 3 elementos.
+17:12:18.834126 | Ver Perfil push button.
+17:12:20.507775 | Ver Perfil push button.
+17:12:21.006682 | form
+17:12:21.010576 | Nombre completo entry Ej: Juan Pérez.
+17:12:21.876499 | Oficio requerido entry Ej: Electricidad.
+17:12:22.183055 | Descripción del problema entry Detalla brevemente el trabajo que necesitas cotizar.
+17:12:22.628849 | Enviar Solicitud push button.
+17:12:23.095568 | form
+17:12:23.098772 | Calificar con 1 estrellas push button.
+17:12:24.429961 | Calificar con 2 estrellas push button.
+17:12:24.830083 | Calificar con 3 estrellas push button.
+17:12:25.208820 | Calificar con 5 estrellas push button.
+17:12:25.589022 | Cuéntanos tu experiencia entry ¿Qué tal fue la puntualidad, prolijidad y trato del profesional?
+17:12:25.950209 | Publicar Calificación push button.
+17:12:26.408395 | form
+17:12:26.412307 | Nombre completo entry Ej: Juan Perez requerido.
+17:12:29.171688 | Oficio o Especialidad entry Ej: Gasista Matriculado.
+17:12:34.934521 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave frame.
+17:12:35.931866 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave - Erick frame.
+17:12:37.876929 | form
+17:12:37.881788 | Nombre completo entry Ej: Juan Perez requerido.
+17:12:38.424527 | Correo electrónico entry usuario@expertoya.com requerido.
+17:12:38.972794 | Rol en la plataforma combo box.
+17:12:38.976883 | Profesional.
+17:12:39.495350 | Oficio o Especialidad entry Ej: Gasista Matriculado.
+17:12:40.879098 | Registrar Usuario push button.
+17:12:41.442967 | Nombre completo entry Ej: Juan Perez requerido.
+17:12:47.325217 | Registro para clientes o profesionales.
+17:12:47.583026 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave frame.
+17:12:59.729813 | ExpertoYa! - Plataforma de Oficios y Servicios - Brave - Erick frame.
+17:13:04.325769 | banner
+17:13:04.334085 | navegación Navegación principal de escritorio
+17:13:04.340008 | Cotizar link.
+17:13:09.829902 | contenido principal
+17:13:09.833809 | form
+17:13:09.838591 | Nombre completo entry Ej: Juan Pérez.
+17:13:10.383417 | Oficio requerido entry Ej: Electricidad.
+17:13:10.869803 | Enviar Solicitud push button.
+17:13:11.162323 | No se pudo enviar. Completá todos los campos e intentá de nuevo.
