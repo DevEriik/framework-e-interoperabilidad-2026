@@ -57,7 +57,17 @@ export function ModuloUsuarios() {
     const [mensajeExito, setMensajeExito] = useState("");
     const [cargando, setCargando] = useState(false);
     const [mensajeError, setMensajeError] = useState("");
-    
+    const [anuncioRol, setAnuncioRol] = useState("");
+
+    const manejarCambioRol = (nuevoRol: "cliente" | "profesional") => {
+        setRol(nuevoRol);
+        setAnuncioRol(
+        nuevoRol === "cliente"
+            ? "Rol actualizado a cliente. Ya no se requiere el oficio o especialidad."
+            : "Rol actualizado a profesional. El campo oficio o especialidad está disponible.",
+        );
+    };
+
     const manejarRegistro = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!nombreCompleto || !email || !password) return;
@@ -179,7 +189,9 @@ export function ModuloUsuarios() {
                         className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm"
                         value={rol}
                         onChange={(e) =>
-                        setRol(e.target.value as "cliente" | "profesional")
+                        manejarCambioRol(
+                            e.target.value as "cliente" | "profesional",
+                        )
                         }
                     >
                         <option value="profesional">Profesional</option>
@@ -196,6 +208,15 @@ export function ModuloUsuarios() {
                     />
                     </div>
                 </div>
+
+                <p
+                    className="sr-only"
+                    role="status"
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
+                    {anuncioRol}
+                </p>
 
                 {rol === "profesional" && (
                     <div className="space-y-2">

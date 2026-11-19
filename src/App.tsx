@@ -1,4 +1,4 @@
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import { ResenaForm } from "@/components/resenas/ResenaForm";
 import { ResenasList } from "@/components/resenas/ResenasList";
 import { useTheme } from "@/components/theme-provider";
@@ -98,13 +98,38 @@ export default function App() {
   const [estadoCotizacion, setEstadoCotizacion] = useState<
     "idle" | "ok" | "error"
   >("idle");
+  const [erroresCotizacion, setErroresCotizacion] = useState<{
+    nombre?: string;
+    servicio?: string;
+    detalle?: string;
+  }>({});
+  const camposCotizacion = useRef({
+    nombre: null as HTMLInputElement | null,
+    servicio: null as HTMLInputElement | null,
+    detalle: null as HTMLInputElement | null,
+  });
 
   const handleEnviarCotizacion = async (e: FormEvent) => {
     e.preventDefault();
-    if (!cotizacion.nombre || !cotizacion.servicio || !cotizacion.detalle) {
+    const nuevosErrores: typeof erroresCotizacion = {};
+    if (!cotizacion.nombre.trim())
+      nuevosErrores.nombre = "Ingresá tu nombre completo.";
+    if (!cotizacion.servicio.trim())
+      nuevosErrores.servicio = "Indicá el oficio requerido.";
+    if (!cotizacion.detalle.trim())
+      nuevosErrores.detalle = "Describí el problema a cotizar.";
+
+    setErroresCotizacion(nuevosErrores);
+    if (Object.keys(nuevosErrores).length > 0) {
       setEstadoCotizacion("error");
+      const primerCampo = (["nombre", "servicio", "detalle"] as const).find(
+        (campo) => nuevosErrores[campo],
+      );
+      if (primerCampo) camposCotizacion.current[primerCampo]?.focus();
       return;
     }
+
+    setErroresCotizacion({});
     setEnviandoCotizacion(true);
     try {
       const res = await fetch("http://localhost:3001/api/cotizaciones", {
@@ -350,50 +375,134 @@ export default function App() {
             </CardHeader>
             <CardContent>
               <CardContent>
-                <form className="space-y-4" onSubmit={handleEnviarCotizacion}>
+                <form
+                  className="space-y-4"
+                  onSubmit={handleEnviarCotizacion}
+                  noValidate
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="nombre">Nombre completo</Label>
+                      <Label htmlFor="nombre">
+                        Nombre completo
+                        <span aria-hidden="true" className="text-destructive">
+                          {" "}
+                          *
+                        </span>
+                      </Label>
                       <Input
                         id="nombre"
+                        ref={(el) => {
+                          camposCotizacion.current.nombre = el;
+                        }}
                         placeholder="Ej: Juan Pérez"
                         value={cotizacion.nombre}
-                        onChange={(e) =>
+                        onChange={(e) => {
                           setCotizacion({
                             ...cotizacion,
                             nombre: e.target.value,
-                          })
+                          });
+                          setErroresCotizacion((prev) => ({
+                            ...prev,
+                            nombre: undefined,
+                          }));
+                        }}
+                        required
+                        aria-invalid={!!erroresCotizacion.nombre}
+                        aria-describedby={
+                          erroresCotizacion.nombre ? "error-nombre" : undefined
                         }
                       />
+                      {erroresCotizacion.nombre && (
+                        <p
+                          id="error-nombre"
+                          className="text-xs font-medium text-destructive"
+                        >
+                          {erroresCotizacion.nombre}
+                        </p>
+                      )}
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="servicio">Oficio requerido</Label>
+                      <Label htmlFor="servicio">
+                        Oficio requerido
+                        <span aria-hidden="true" className="text-destructive">
+                          {" "}
+                          *
+                        </span>
+                      </Label>
                       <Input
                         id="servicio"
+                        ref={(el) => {
+                          camposCotizacion.current.servicio = el;
+                        }}
                         placeholder="Ej: Electricidad"
                         value={cotizacion.servicio}
-                        onChange={(e) =>
+                        onChange={(e) => {
                           setCotizacion({
                             ...cotizacion,
                             servicio: e.target.value,
-                          })
+                          });
+                          setErroresCotizacion((prev) => ({
+                            ...prev,
+                            servicio: undefined,
+                          }));
+                        }}
+                        required
+                        aria-invalid={!!erroresCotizacion.servicio}
+                        aria-describedby={
+                          erroresCotizacion.servicio
+                            ? "error-servicio"
+                            : undefined
                         }
                       />
+                      {erroresCotizacion.servicio && (
+                        <p
+                          id="error-servicio"
+                          className="text-xs font-medium text-destructive"
+                        >
+                          {erroresCotizacion.servicio}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="detalle">Descripción del problema</Label>
+                    <Label htmlFor="detalle">
+                      Descripción del problema
+                      <span aria-hidden="true" className="text-destructive">
+                        {" "}
+                        *
+                      </span>
+                    </Label>
                     <Input
                       id="detalle"
+                      ref={(el) => {
+                        camposCotizacion.current.detalle = el;
+                      }}
                       placeholder="Detalla brevemente el trabajo que necesitas cotizar"
                       value={cotizacion.detalle}
-                      onChange={(e) =>
+                      onChange={(e) => {
                         setCotizacion({
                           ...cotizacion,
                           detalle: e.target.value,
-                        })
+                        });
+                        setErroresCotizacion((prev) => ({
+                          ...prev,
+                          detalle: undefined,
+                        }));
+                      }}
+                      required
+                      aria-invalid={!!erroresCotizacion.detalle}
+                      aria-describedby={
+                        erroresCotizacion.detalle ? "error-detalle" : undefined
                       }
                     />
+                    {erroresCotizacion.detalle && (
+                      <p
+                        id="error-detalle"
+                        className="text-xs font-medium text-destructive"
+                      >
+                        {erroresCotizacion.detalle}
+                      </p>
+                    )}
                   </div>
                   <div className="pt-2 flex flex-col sm:flex-row sm:justify-start">
                     <Button
@@ -422,8 +531,8 @@ export default function App() {
                     <Alert variant="destructive">
                       <AlertCircle className="h-4 w-4 shrink-0" />
                       <AlertDescription>
-                        No se pudo enviar. Completá todos los campos e intentá
-                        de nuevo.
+                        No se pudo enviar. Revisá los campos marcados o intentá
+                        de nuevo más tarde.
                       </AlertDescription>
                     </Alert>
                   )}
