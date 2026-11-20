@@ -122,10 +122,10 @@ export const ResenaForm: React.FC<ResenaFormProps> = ({
 
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="space-y-2">
-            <Label className="text-sm font-semibold">
+          <fieldset className="space-y-2">
+            <legend className="text-sm font-semibold">
               ¿Cómo calificarías el trabajo realizado?
-            </Label>
+            </legend>
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => {
@@ -133,32 +133,44 @@ export const ResenaForm: React.FC<ResenaFormProps> = ({
                     (hoverPuntaje !== null ? hoverPuntaje : calificacion) >=
                     star;
                   return (
-                    <button
+                    <label
                       key={star}
-                      type="button"
-                      className="p-1 rounded-md transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary"
-                      onClick={() => setCalificacion(star)}
+                      className="flex cursor-pointer items-center rounded-md p-1 transition-transform hover:scale-110 focus-within:ring-2 focus-within:ring-primary"
                       onMouseEnter={() => setHoverPuntaje(star)}
                       onMouseLeave={() => setHoverPuntaje(null)}
-                      aria-label={`Calificar con ${star} estrellas`}
                     >
+                      <input
+                        type="radio"
+                        name={`calificacion-${solicitudId}`}
+                        value={star}
+                        checked={calificacion === star}
+                        onChange={() => setCalificacion(star)}
+                        onFocus={() => setHoverPuntaje(star)}
+                        onBlur={() => setHoverPuntaje(null)}
+                        aria-label={`${star} de 5 estrellas`}
+                        className="sr-only"
+                      />
                       <Star
+                        aria-hidden="true"
                         className={`h-6 w-6 sm:h-7 sm:w-7 transition-colors ${
                           activo
                             ? "fill-primary text-primary drop-shadow-[0_2px_8px_rgba(255,140,0,0.35)]"
                             : "text-muted-foreground/40"
                         }`}
                       />
-                    </button>
+                    </label>
                   );
                 })}
               </div>
-              <span className="text-xs sm:text-sm font-bold text-primary ml-1 sm:ml-2">
+              <span
+                aria-hidden="true"
+                className="text-xs sm:text-sm font-bold text-primary ml-1 sm:ml-2"
+              >
                 {hoverPuntaje !== null ? hoverPuntaje : calificacion} de 5
                 estrellas
               </span>
             </div>
-          </div>
+          </fieldset>
 
           <div className="space-y-2">
             <div className="flex justify-between">

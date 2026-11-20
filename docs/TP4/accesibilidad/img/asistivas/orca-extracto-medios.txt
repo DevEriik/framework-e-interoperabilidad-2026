@@ -1,0 +1,49 @@
+EXTRACTO DE VOZ · ORCA · HALLAZGOS MEDIOS (TP4-15 / TP4-16)
+============================================================
+
+Fecha: 2026-11-19 18:13 - 18:14 (ART)
+Lector: Orca 46.1 (log de depuracion: orca --debug-file)
+Navegador: Brave Browser 158.1.100.58
+Sistema: Linux Mint 22.1, X11, DISPLAY=:0
+App: http://127.0.0.1:5180/ (servidor Vite local, rama feature/tp4-15-hallazgos-medios)
+Metodo: sesion real de Orca sobre la app en vivo; las lineas siguientes son
+        transcripciones literales de "SPEECH DISPATCHER: Speaking '...' as string"
+        del log generado en esa sesion. No fueron escritas a mano.
+
+------------------------------------------------------------
+1) CAMBIO DE ROL (captura 24-rol-cliente-anunciado.png)
+------------------------------------------------------------
+18:13:41.898497 - SPEECH DISPATCHER: Speaking 'Rol en la plataforma combo box.' as string
+18:13:41.903723 - SPEECH DISPATCHER: Speaking 'Profesional.' as string
+18:13:41.907102 - SPEECH DISPATCHER: Speaking 'abre el menú' as string
+18:13:42.637693 - SPEECH DISPATCHER: Speaking 'Rol actualizado a cliente. Ya no se requiere el oficio o especialidad.' as string
+18:14:05.175317 - SPEECH DISPATCHER: Speaking 'Rol actualizado a profesional. El campo oficio o especialidad está disponible.' as string
+18:14:06.190364 - SPEECH DISPATCHER: Speaking 'Rol actualizado a cliente. Ya no se requiere el oficio o especialidad.' as string
+
+Resultado: el cambio se anuncia sin que el foco salga del combo box.
+
+------------------------------------------------------------
+2) ESTRELLAS DE CALIFICACION (captura 25-estrellas-estado-anunciado.png)
+------------------------------------------------------------
+18:14:07.770724 - SPEECH DISPATCHER: Speaking '4 de 5 estrellas.' as string
+18:14:07.775840 - SPEECH DISPATCHER: Speaking 'seleccionado radio button' as string
+
+Resultado: Orca identifica el grupo y el estado seleccionado (antes: solo
+"Calificar con 4 estrellas, boton", sin estado).
+
+------------------------------------------------------------
+3) COTIZACION CON CAMPOS OBLIGATORIOS (captura 26-cotizacion-errores-asociados.png)
+------------------------------------------------------------
+18:14:09.594804 - SPEECH DISPATCHER: Speaking 'Nombre completo entry Ej: Juan Pérez requerido.' as string
+18:14:09.600511 - SPEECH DISPATCHER: Speaking 'entrada no válida.' as string
+18:14:09.620514 - SPEECH DISPATCHER: Speaking 'No se pudo enviar. Revisá los campos marcados o intentá de nuevo más tarde.' as string
+18:14:09.751698 - SPEECH DISPATCHER: Speaking 'Ingresá tu nombre completo.' as string
+
+Resultado: Orca anuncia "requerido" al enfocar, "entrada no válida" por
+aria-invalid, el resumen del Alert (role="alert") y el error asociado al
+campo mediante aria-describedby. El foco queda en #nombre.
+
+------------------------------------------------------------
+Nota: al cargar la pagina Orca tambien leyo las alertas estaticas de los
+estados del sistema (lineas 18:13:14 - 18:13:15). Ese hallazgo de TP4-15
+no forma parte de estas tres correcciones.
