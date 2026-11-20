@@ -101,3 +101,17 @@
     @apply font-sans scroll-smooth;
   }
 }
+
+/* TP4-15: los anillos basados en box-shadow desaparecen en alto contraste. */
+@media (forced-colors: active) {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+  }
+
+  [aria-pressed="true"] {
+    outline: 2px solid Highlight !important;
+    outline-offset: -2px !important;
+  }
+}
