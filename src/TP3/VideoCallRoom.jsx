@@ -7,6 +7,7 @@ export default function VideoCallRoom({
   token,
   userName = 'Usuario ExpertoYa',
   userRole = 'cliente',
+  titleId,
   onCloseCall,
 }) {
   const [callState, setCallState] = useState('joining');
@@ -263,7 +264,7 @@ export default function VideoCallRoom({
         <div className="flex items-center space-x-3">
           <div className="w-3 h-3 rounded-full bg-[#00BFA5] dark:bg-[#33EFA5] animate-pulse" aria-hidden="true" />
           <div>
-            <h2 className="text-lg font-bold text-[#283593] dark:text-gray-100">
+            <h2 id={titleId} className="text-lg font-bold text-[#283593] dark:text-gray-100">
               ExpertoYa — Diagnóstico Preliminar
             </h2>
             <p className="text-xs text-[#283593]/70 dark:text-gray-400">

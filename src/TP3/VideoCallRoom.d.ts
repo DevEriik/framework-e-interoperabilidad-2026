@@ -6,6 +6,7 @@ export interface VideoCallRoomProps {
   token?: string;
   userName?: string;
   userRole?: 'cliente' | 'profesional';
+  titleId?: string;
   onCloseCall?: () => void;
 }
 
